@@ -10,7 +10,32 @@
 </head>
 <body>
     <div id="root">
-        
+        <div class="container" id="my-bg-linear">
+            <main class="my-d-flex my-h-100">
+                <div class="option-left my-d-flex my-justify-center">
+                    <div class="p-t-60">
+                        <h1>Scegli la tua immagine preferita</h1>
+                        <div class="container-card" v-for="(image,index) in images">
+                            <div class="title-card">
+                                <h1 id="f-size-15">pinco Pallo</h1>
+                            </div>
+                            <div class="content-card">
+                                <div>
+                                    <h1>{{images[index]}}</h1>
+                                </div>
+                                <button @click="chooise(index)" type="button" class="my-w-120 my-margin-20">{{index + 1}}</button>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="results-right">
+                    <div :class="off" class="my-w-120 my-h-120">
+                        <h1>{{images[count]}}</h1>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <footer class="my-bg-color-footer"></footer>
     </div>
     <script src="main.js"></script>
 </body>

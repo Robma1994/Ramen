@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <title>Ramen Slider</title>
 </head>
@@ -12,25 +13,29 @@
     <div id="root">
         <div class="container" id="my-bg-linear">
             <main class="my-d-flex my-h-100">
-                <div class="option-left my-d-flex my-justify-center">
-                    <div class="p-t-60">
+                <div class="option-left">
+                    <div class="p-t-60 my-d-flex my-flex-direction my-justify-center my-align-center">
                         <h1>Scegli la tua immagine preferita</h1>
                         <div class="container-card" v-for="(image,index) in images">
-                            <div class="title-card">
-                                <h1 id="f-size-15">pinco Pallo</h1>
+                            <div class="title-card my-d-flex">
+                                <!-- <h1 id="f-size-18">{{images[index].name}}</h1> -->
+                                <i :class="image.icon"></i>
                             </div>
-                            <div class="content-card">
-                                <div>
-                                    <h1>{{images[index]}}</h1>
+                            <div class="content-card p">
+                                <div class="my-w-200 my-h-120">
+                                    
+                                    <img class="img" :src="'img/img' + image.link + '.jpg'" alt="">
+                                    <!-- <h1>{{images[index]}}</h1> -->
                                 </div>
-                                <button @click="chooise(index)" type="button" class="my-w-120 my-margin-20">{{index + 1}}</button>
+                                <button @click="chooise(index)" type="button" class="my-w-120 my-margin-top-20">Ingrandisci immagine</button>
                             </div>
                         </div> 
                     </div>
                 </div>
-                <div class="results-right">
-                    <div :class="off" class="my-w-120 my-h-120">
-                        <h1>{{images[count]}}</h1>
+                <div class="results-right my-d-flex my-justify-center my-align-center">
+                    <div :class="off" class="my-h-300 my-h-300 my-bg-color-footer">
+                        <img class="img" :src="'img/img' + images[count].link + '.jpg'" alt="">
+                        <!-- <h1>{{images[count]}}</h1> -->
                     </div>
                 </div>
             </main>
